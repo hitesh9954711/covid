@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\css.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="js/script.js"></script>
+    <title>Covid-19 </title>
+</head>
+
+<body ng-app="MyApp" ng-controller="MyCtrl">
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container text-center"><img class="img-thumbnail" style="border-radius: 50%; height: 300px;"
+                    src="images\Corona_Virus-16-512.png"></div>
+            <h1 class="text-center">{{title}}</h1>
+            <br>
+            <p>Coronavirus disease 2019 (COVID-19) is an infectious disease caused by severe acute respiratory syndrome
+                coronavirus 2 (SARS-CoV-2). The disease was first identified in December 2019 in Wuhan, the capital of
+                China's Hubei province, and has since spread globally, resulting in the ongoing 2019–20 coronavirus
+                pandemic. Common symptoms include fever, cough, and shortness of breath. Other symptoms may
+                include fatigue, muscle pain, diarrhea, sore throat, loss of smell, and abdominal pain.</p>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card  bg-warning text-white">
+                    <div class="card-body">
+                        <h3>Confirmed cases</h3>
+                        <h3>{{All_Data.confirmed.value}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card  bg-danger text-white">
+                    <div class="card-body">
+                        <h3>Deaths</h3>
+                        <h3>{{All_Data.deaths.value}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card  bg-success text-white">
+                    <div class="card-body">
+                        <h3>Recovered cases</h3>
+                        <h3>{{All_Data.recovered.value}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="text" class="form-control mt-4" placeholder="enter country here" ng-model="c"
+            ng-change="get_c_data()">
+
+        <div class="row text-center" ng-if="country_data">
+            <div class="container-fluid">
+                <h1>{{c}} Status</h1>
+            </div>
+            <div class="col-md-4">
+                <div class="card  bg-warning text-white">
+                    <div class="card-body">
+                        <h3>Confirmed cases</h3>
+                        <h3>{{country_data.confirmed.value}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card  bg-danger text-white">
+                    <div class="card-body">
+                        <h3>Deaths</h3>
+                        <h3>{{country_data.deaths.value}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card  bg-success text-white">
+                    <div class="card-body">
+                        <h3>Recovered cases</h3>
+                        <h3>{{country_data.recovered.value}}</h3>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>
